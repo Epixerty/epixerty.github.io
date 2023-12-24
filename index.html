@@ -4,6 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Epixerty</title>
+
+  <script defer>
+    // The URL you provided
+    const apiUrl = "https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=1373566627&size=420x420&format=Png&isCircular=false";
+
+    // Function to update the og:image meta tag
+    function updateOgImageTag(imageUrl) {
+      const ogImageTag = document.querySelector('meta[property="og:image"]');
+      ogImageTag.setAttribute("content", imageUrl);
+    }
+
+    // Fetch the image URL and update the meta tag
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const imageUrl = data.data[0].imageUrl;
+        updateOgImageTag(imageUrl);
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  </script>
+
   <meta content="Epixerty" property="og:title" />
   <meta content="Epixerty's portfolio website" property="og:description" />
   <meta content="https://epixerty.github.io" property="og:url" />
