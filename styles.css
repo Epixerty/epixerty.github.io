@@ -52,21 +52,6 @@ main {
   margin: 0 25%;
 }
 
-@media only screen and (max-width: 950px) {
-  main {
-    padding: 12px;
-    margin: 0 25%;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  main {
-    padding: 12px;
-    margin: 0 10%;
-  }
-}
-
-
 h1 {
   padding-bottom: 12px;
 }
@@ -98,17 +83,26 @@ footer {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 4px;
+  vertical-align: top;
+  padding: 0;
+  margin-bottom: 8px;
+  
+  width: calc(50% - 8px); /* Calculate the width considering gap */
+  box-sizing: border-box;
+
+  position: relative;
 }
 
 .game-thumbnail img {
-  width: 25%, ;
+  width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 4px;
   transition: filter 0.15s ease-in-out;
 }
 
 .game-thumbnail .overlay {
+  border-radius: inherit;
   position: absolute;
   top: 0;
   left: 0;
@@ -119,7 +113,6 @@ footer {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  padding-left: 2%;
   opacity: 0;
   transition: opacity 0.15s ease-in-out;
 }
@@ -133,10 +126,28 @@ footer {
 }
 
 .game-thumbnail .overlay p {
-  font-size: 24px;
-  font-weight: bold;
-  color: rgb(220, 220, 220);
+  font-size: 16px;
+  color: rgb(233, 233, 233);
   margin: 0;
-  padding-bottom: 10px;
+  padding: 8px;
   text-align: left;
+}
+
+@media only screen and (max-width: 950px) {
+  main {
+    padding: 12px;
+    margin: 0 25%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    padding: 12px;
+    margin: 0 10%;
+  }
+  
+  .game-thumbnail {
+    width: 100%; /* Calculate the width considering gap */
+    box-sizing: border-box;
+  }
 }
